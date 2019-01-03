@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма ввода</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script>
+        function buildData(action) {
+            return {
+                "action": action,
+                "properties": [
+                    {
+                        "name": "TIME_TABLE",
+                        "value": $("#TIME_TABLE").val()
+                    },
+                    {
+                        "name": "MASTER_CLASSES",
+                        "value": $("#MASTER_CLASSES").val()
+                    },
+                    {
+                        "name": "SPEAKERS",
+                        "value": $("#SPEAKERS").val()
+                    },
+                    {
+                        "name": "CONTACTS",
+                        "value": $("#CONTACTS").val()
+                    },
+                    {
+                        "name": "PHOTOS",
+                        "value": $("#PHOTOS").val()
+                    },
+                    {
+                        "name": "FOOD",
+                        "value": $("#FOOD").val()
+                    }
+                ]
+            };
+        }
+
+        function setData(data) {
+            $("#TIME_TABLE").val(data.properties["TIME_TABLE"].val());
+            $("#MASTER_CLASSES").val(data.properties["MASTER_CLASSES"].val());
+            $("#SPEAKERS").val(data.properties["SPEAKERS"].val());
+            $("#CONTACTS").val(data.properties["CONTACTS"].val());
+            $("#PHOTOS").val(data.properties["PHOTOS"].val());
+            $("#FOOD").val(data.properties["FOOD"].val());
+        }
+
+        function update() {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/Ckf_d3f-j8u1eF0k3kbk_eqz",
+                data: buildData("REFRESH"),
+                success:function (data) {
+                    if (data.action === "SUCCESS") {
+                        setData(data);
+                    } else {
+                        alert("Error: " + data);
+                    }
+                },
+                error:function (data) {
+                    alert("Error: " + data);
+                }
+            });
+        }
+
+        function save() {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/Ckf_d3f-j8u1eF0k3kbk_eqz",
+                data: buildData("SAVE"),
+                success:function (data) {
+                    if (data.action === "SUCCESS") {
+                        setData(data);
+                    } else {
+                        alert("Error: " + data);
+                    }
+                },
+                error:function (data) {
+                    alert("Error: " + data);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<form>
+    <table>
+        <caption>Форма ввода</caption>
+        <tr>
+            <th>Название блока (кнопки)</th>
+            <th>Содержание</th>
+        </tr>
+        <tr>
+            <td>Расписание</td>
+            <td><textarea id="TIME_TABLE"></textarea></td>
+        </tr>
+        <tr>
+            <td>Мастер-классы</td>
+            <td><textarea id="MASTER_CLASSES"></textarea></td>
+        </tr>
+        <tr>
+            <td>Спикеры</td>
+            <td><textarea id="SPEAKERS"></textarea></td>
+        </tr>
+        <tr>
+            <td>Контакты</td>
+            <td><textarea id="CONTACTS"></textarea></td>
+        </tr>
+        <tr>
+            <td>Фотки</td>
+            <td><textarea id="PHOTOS"></textarea></td>
+        </tr>
+        <tr>
+            <td>Еда</td>
+            <td><textarea id="FOOD"></textarea></td>
+        </tr>
+    </table>
+    <input type="button" onclick="update()" value="Обновить">
+    <input type="button" onclick="save()" value="Сохранить">
+</form>
+</body>
+</html>

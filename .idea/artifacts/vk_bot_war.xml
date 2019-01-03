@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="vk_bot:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="vk_bot-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="vk_bot:war exploded" />
+    </root>
+  </artifact>
+</component>
