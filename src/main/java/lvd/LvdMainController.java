@@ -40,7 +40,7 @@ public class LvdMainController {
     private static QueueVk messageRandomIds = new QueueVk();
 
     static void init_contriller() throws IOException {
-        LOG.warn("init_controller start");
+        LOG.debug("init_controller start");
 
         setInitProperties();
 
@@ -49,7 +49,7 @@ public class LvdMainController {
         TransportClient transportClient = new HttpTransportClient();
         vk = new VkApiClient(transportClient);
 
-        LOG.warn("init_controller finish");
+        LOG.debug("init_controller finish");
     }
 
     @RequestMapping("/lvd")
@@ -179,7 +179,7 @@ public class LvdMainController {
                 .randomId(random.nextInt())
                 .execute();
         LOG.info("TIGER_LVD sendMessage userId = <" + userId + "> text=<" + text.substring(0,10) + ">\n");
-        LOG.warn("TIGER_LVD sendMessage userId = <" + userId + "> text=<" + text + ">\n");
+        LOG.debug("TIGER_LVD sendMessage userId = <" + userId + "> text=<" + text + ">\n");
         LOG.info("TIGER_LVD sendMessage end!\n");
     }
 
