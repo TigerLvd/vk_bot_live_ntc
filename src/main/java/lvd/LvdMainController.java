@@ -144,6 +144,9 @@ public class LvdMainController {
                     } else if (Label.FOOD.getTitle().equals(text)) {
                         outputText = getMessageContent("FOOD", PROPERTIES_FILE_CONTENT);
                         message.setAction(Label.FOOD);
+                    } else if (Label.COMPETITIONS.getTitle().equals(text)) {
+                        outputText = getMessageContent("COMPETITIONS", PROPERTIES_FILE_CONTENT);
+                        message.setAction(Label.COMPETITIONS);
                     } else {
                         outputText = getMessageContent("START_MESSAGE", PROPERTIES_FILE_CONTENT);
                     }
@@ -175,7 +178,7 @@ public class LvdMainController {
         vk.messages().send(groupActor)
                 .message(text)
                 .userId(userId)
-                .unsafeParam("keyboard", gson.toJson(new Keyboard(6, action)))
+                .unsafeParam("keyboard", gson.toJson(new Keyboard(7, action)))
                 .randomId(random.nextInt())
                 .execute();
         LOG.info("TIGER_LVD sendMessage userId = <" + userId + "> text=<" + text.substring(0,10) + ">\n");
