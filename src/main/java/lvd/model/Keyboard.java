@@ -74,11 +74,11 @@ public class Keyboard {
         buttons[1][2].getAction().setLabel(Label.FOOD.getTitle());
         buttons[1][2].setColor(Label.FOOD.equals(action) ? "primary" : "default");//primary/default
 
-        buttons[2][1] = new Button();
-        buttons[2][1].getAction().setType("text");
-        buttons[2][1].getAction().setPayload("{\"button\": \"7\"}");
-        buttons[2][1].getAction().setLabel(Label.COMPETITIONS.getTitle());
-        buttons[2][1].setColor(Label.COMPETITIONS.equals(action) ? "primary" : "default");//primary/default
+        buttons[2][0] = new Button();
+        buttons[2][0].getAction().setType("text");
+        buttons[2][0].getAction().setPayload("{\"button\": \"7\"}");
+        buttons[2][0].getAction().setLabel(Label.COMPETITIONS.getTitle());
+        buttons[2][0].setColor(Label.COMPETITIONS.equals(action) ? "primary" : "default");//primary/default
     }
 
     private void fill6Buttons(Label action) {
