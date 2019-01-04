@@ -6,7 +6,7 @@ public enum Label {
     SPEAKERS("Спикеры"),
     CONTACTS("Контакты"),
     PHOTOS("Фотки"),
-    NEWS("Новости"),
+    NEWS("Объявления"),
     FOOD("Еда");
 
     private final String title;
